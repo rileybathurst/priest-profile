@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#1e93bd`,
         theme_color: `#1e93bd`,
         display: `minimal-ui`,
-        icon: `src/images/priest-icon-256x256.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     "gatsby-transformer-remark",
