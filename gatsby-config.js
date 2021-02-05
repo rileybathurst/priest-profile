@@ -55,11 +55,8 @@ module.exports = {
         contentTypes: [
           // these can be found at http://localhost:1337/admin/plugins/users-permissions/roles/edit/2 always add the 's' case insensitive
           `service`, // http://localhost:1337/services
-          `Slider-Ones`, // http://localhost:1337/Slider-Ones
-          `Slider-Twos`,
           `galleries`,
-          `videos`,
-          `testimonials`,
+          `videos`
           
           // Im getting this with pretty much everything
           // ERROR (node:3759) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated

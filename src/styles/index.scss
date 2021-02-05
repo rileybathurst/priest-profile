@@ -421,18 +421,26 @@ nav, .menu-primary-container, .force-menu-style {
 	font-size: 1.2em;
 	letter-spacing: 0.1rem;
 
+	// why is this only on large?
 	@media (min-width: map-get($breakpoints, large)) {
 		font-family: $header-font-family;
 	}
 }
 
-.menu-primary-container > ul > a,
-.menu-primary-container > ul > li > a {
-	border-bottom: 5px solid $secondary-color; // invisibile until hovered
+.menu-primary-container {
+	> ul > li {
+		padding: 1rem 0.5rem;
+		// this helps get the border back in line
+		margin-bottom: 2px;
+		margin-top: -2px;
+
+		> a {
+			padding: 1rem;
+			border-bottom: 5px solid $secondary-color; // invisibile until hovered
+		}
+	}
 }
 
-
-.menu-primary-container > ul > a:hover,
 .menu-primary-container > ul > li > a:hover {
 	color: darken( $white, 10%);
 	background: darken( $secondary-color, 10% );
@@ -450,10 +458,6 @@ nav, .menu-primary-container, .force-menu-style {
 
 .menu a {
 	text-decoration: none;
-}
-
-.menu-primary-container a:hover {
-	background: #006087; // hack I need to make this from a variable
 }
 
 .menu li {

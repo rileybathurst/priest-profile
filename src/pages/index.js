@@ -36,61 +36,6 @@ function Cover(props) {
 }
 // END OF COVER
 
-// START OF GALLERY
-// Part of the gallery
-// returns each photo as a list item
-function Photos(props) {
-  return <li className="blocks-gallery-item">
-    <img src={'https://priestsheetmetal.co.nz' + props.photoSrc} alt={props.photoAlt} loading="lazy" />
-    {/* {props.photoSrc} test */}
-    {/* {props.photoAlt} test */}
-  </li>
-}
-
-function Gallery(props) {
-  var hasGallery = props.hasGallery
-  // this is a variable I define manually if we have a gallery make it 1
-  // otherwise it's undefined as the boolean function of strapi was not working for me
-
-  // console.log(hasGallery); // test
-  if (hasGallery === 1) { // this is kinda a faked boolean but could be done better
-    // possibly if (hasGallery) { but that all needs to be tested
-    return <>
-      <hr className="swiss" />
-
-      <div style={{
-        display: 'flex',
-        marginBottom: '28px',
-        justifyContent: 'space-between'
-      }}
-      className="services-photogallery"
-      >
-      <h3 className="wp-block-colum">Photo Gallery</h3>
-      <div className="wp-block-colum">
-        <figure className="wp-block-gallery columns-2 is-cropped">
-          <ul className="blocks-gallery-grid">
-            {/* <li>test</li> */}
-
-            {/* This is confusing maybe it works but it needs to be documented when I can understand it */}
-            {/* not gatsby Img so and not responsive image but day 1 this is atleast working */}
-            {/* // needs a lozad lazy load for everything other than chrome */}
-            {/* make this a variable and do some work on it, remove the extension, change it, add sizes etc */}
-
-            {/* up to here is establishing the gallery before dipping into the map for each */}
-            {props.loop}
-            {/* Adding a loop inside of a prop seems a very react kinda thing to do but Im not sure if it's smart? */}
-          </ul>
-        </figure>
-      </div> {/* column */}
-    </div>
-  </> } // else return
-  return <>
-    {/* null // no gallery  */}
-    {/* test */}
-  </>
-}
-// END OF GALLERY
-
 // START OF VIDEOS
 function Sec(props) { // seperator between the secondary videos
   if (props.hasVideo > 1) {
@@ -168,11 +113,21 @@ const ArticleTemplate = ({ data }) => (
         )}
         {/* close out the videos area */}
 
-        <Gallery
-          hasGallery={data.strapiService.hasGallery}
-          loop={data.strapiService.gallery.map(photos =><Photos photoSrc={photos.url} photoAlt={photos.name} /> )}
-        />
-        {/* {data.strapiService.hasGallery} test */}
+        {/* style="display:flex;margin-bottom:28px;justify-content:space-between" */}
+
+        <div  className="services-photogallery">
+          <h3 className="wp-block-colum">Photo Gallery</h3>
+          <div className="wp-block-colum">
+            <figure className="wp-block-gallery columns-2 is-cropped">
+
+              <ul className="blocks-gallery-grid">
+                <li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/ed66b8e597ce4945a981479e446ca20c.jpg" alt="Architectural-Planter-Boxes-Custom-Made-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/bfb5f4053f6a4e06926a453da4aa658a.jpg" alt="Architectural-signs-Profile-Cutting-Custom-Made-Steel-Rustic-Blackened-Steel-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/5ada1c60dea241b0bcb3add453b7d9f0.jpg" alt="Cone-Cutting-and-Folding-Rolling-Steel-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/a923e4c83aa246c490fb92e157151b84.jpg" alt="Custom-Flange-Profile-Cutting-Steel-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/ddc7b49cd7ce49a3acd8a985ba7cf839.jpg" alt="Custom-Logo_s-Profile-Cutting-Powder-coating-_1-1024x498.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/21b1a05c096e4f6cb40308545ca07b55.jpg" alt="Custom-Profile-Cutting-Folding-and-Fabrication-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/547cbb81db314d4f80fe0eafc7c9d9d2.jpg" alt="Custom-Sign-Fabrication-Welding-Cutting-and-Folding-Profile-Cutting-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/e8d892a6f7ac492c979a5dde26db956a.jpg" alt="Custom-Sign-Fabrication-Welding-Cutting-and-Folding-Profile-Cutting-1_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/b920ffafb76344e6b2429cc259826c8f.jpg" alt="Custom-Profile-Cutting-Folding-and-Fabrication-Stainless-Steel-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/8f39edcb40d54786982390f90d8d2f51.jpg" alt="Custom-Profile-Cutting-Folding-and-Fabrication-2_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/e42db8b6a6ad4e7bb108756199f323bb.jpg" alt="Custom-Profile-Cutting-Folding-and-Fabrication-1_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/3b74db48c1994be7a7e199645e3c7b10.jpg" alt="Custom-Sign-Profile-Cutting-Fabrication-Cutting-and-Folding-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/46cdb4403a7147e7b8734ed2103ac48e.jpg" alt="Planter-Boxes-Steel-Powder-coated-Landscaping-Custom-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/f8b338b912394a5a95a8f8d657379509.jpg" alt="Flanges-Profile-Cutting-Custom-Steel-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/da230d6e6f5842818784a22a1743db79.jpg" alt="Custom-Logo-Profile-Cutting-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/f550d1aabcd54fbfb897956b8ac84507.jpg" alt="Sign-Custom-Profile-Cutting-_1-768x1024.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/4cb73dfa0b6b49e0bb203bc1dc492b28.jpg" alt="Profile-Cut-Steel-Plate-Custom-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/66ba52ad0a454d609931bf08c7beba56.jpg" alt="Letterbox-Face-Plate-Steel-Profile-Cutting-Fabrication_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/caaebc622d8a479b8bbd5076d8cbcc52.jpg" alt="Steel-Box-Section-Cutting-and-Folding-Welding-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/1b6185bb7da84d519014dbdc48f2e922.jpg" alt="Planter-Boxes-Architectural-Powder-coating-Custom-Made-Rolling-Planter-Boxes_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/e02823b3aa764ecc8db7044308775d32.jpg" alt="Hydraulic-Reservoir-Steel-Fabrication-Cutting-and-Folding-Steel-Welding-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/eb2c0e31933f44feaf8490ab8e7a36aa.jpg" alt="Sign-Work-Brass-Profile-Cutting_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/a52dd94d4f9b44a78363b5db3f37c627.jpg" alt="Profile-cut-angles-Profile-Cutting-Cutting-and-Folding-_1-1024x768.jpg" loading="lazy" /> </li><li className="blocks-gallery-item"><img src="https://priestsheetmetal.co.nz/uploads/67a3a5f68c7443d680412bd702d35a6e.jpg" alt="Vent-Grill-Custom-Made-Profile-Cutting-_1-768x1024.jpg" loading="lazy" /> </li>
+                
+              </ul>
+
+            </figure>
+          </div> {/* .wp-block-colum */}
+        </div> {/* .services-photogallery */}
 
     </article>
 
