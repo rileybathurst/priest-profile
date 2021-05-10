@@ -1,12 +1,7 @@
-/*
- * Very minimal due to the svg rather than a query from somewhere
-*/
+import * as React from "react";
+import { Link } from "gatsby";
 
-import React from "react"
-import { Link } from "gatsby"
-
-const Image = () => {
-
+const Logo = () => {
   return (
     <Link to="/">
       <svg id="Layer_1" title="priest profile cutting logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410.86 101.52">
@@ -42,7 +37,7 @@ const Image = () => {
         <polygon class="cls-1" points="350.51 85.33 350.59 85.33 353.57 93.59 349.81 93.59 349 95.78 354.36 95.78 355.62 99.32 354.18 99.57 354.18 101.24 359.68 101.24 359.68 99.57 358.27 99.37 351.69 81.99 349.46 81.99 342.75 99.37 341.33 99.57 341.33 101.24 346.83 101.24 346.83 99.57 345.38 99.32 350.51 85.33"/>
     </svg>
     </Link>
-  )
-}
+  );
+};
 
-export default Image
+export default Logo;

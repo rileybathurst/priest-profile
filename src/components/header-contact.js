@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 
 const HeaderContact = () => (
     <div id="header-contact-background" class="shadow">

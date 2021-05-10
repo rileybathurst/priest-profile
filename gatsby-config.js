@@ -14,95 +14,32 @@ module.exports = {
     author: 'Priest Sheetmetal'
   },
   plugins: [
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-source-strapi",
       options: {
-        name: `Priest Sheetmetal`,
-        short_name: `priest`,
-        start_url: `/`,
-        background_color: `#1e93bd`,
-        theme_color: `#1e93bd`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    "gatsby-transformer-remark",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/images`,
-      },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
-      },
-      __key: "pages",
-    },
-    {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: `http://localhost:1337`,
-        // queryLimit: 1000, // Default to 100
+        apiURL: "http://45.79.101.19:1338", // linode build
+        // apiURL: "http://localhost:1338", // local
         contentTypes: [
-          // these can be found at http://localhost:1337/admin/plugins/users-permissions/roles/edit/2 always add the 's' case insensitive
-          `service`, // http://localhost:1337/services
+          "service",
           `galleries`,
-          `videos`
-          
-          // Im getting this with pretty much everything
-          // ERROR (node:3759) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
-
-          // Even with a singular service query Im getting this 
-          // warn Multiple node fields resolve to the same GraphQL field `StrapiService.Cover` - [`Cover`,
-          // Its a warning which I was always getting so Im ok with it for now
-
+          `videos`,
+          `testimonials`,
         ],
-        //If using single types place them in this array.
-        // singleTypes: [`home-page`, `contact`],
-        // Possibility to login with a strapi user, when content types are not publically available (optional).
-        // loginData: {
-        //   identifier: "",
-        //   password: "",
-        // },
-      },
-      
-    },
-    `gatsby-plugin-sass`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
-    {
-      resolve: 'gatsby-plugin-htaccess',
-      options: {
-        https: true,
-        www: false,
-      }
-    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Roboto Slab`,
-          `source sans pro\:400` // you can also specify font weights and styles
+          `Roboto Slab\:400`,
+          `Open Sans\:400,700`
         ],
         display: 'swap'
       }
-    },
-    `gatsby-plugin-sitemap`,
+    }
   ],
 };

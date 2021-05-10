@@ -1,13 +1,14 @@
-// this is the single page
+import * as React from "react"
+import { Link, graphql } from 'gatsby'
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import Header from "../components/header"
 import Footer from "../components/footer"
+import Seo from "../components/seo"
 
-import SEO from "../components/seo"
-import HeaderContact from "../components/headercontact"
+import SummitContact from '../components/summit-contact'
+
+import "../styles/index.scss";
 
 // START OF COVER
 function Cover(props) {
@@ -32,7 +33,11 @@ function Cover(props) {
           frameBorder="0" allow="autoplay; fullscreen" allowFullScreen />
       </div>
   } // else
-  return <Img fluid={photo} />
+  // return <Img fluid={photo} />
+
+  {
+    return null
+  }
 }
 // END OF COVER
 
@@ -45,18 +50,16 @@ function Sec(props) { // seperator between the secondary videos
 }
 // END OF VIDEOS
 
-const ArticleTemplate = ({ data }) => (
-  <>
-    {/* {data.strapiService.title} */}
-
-    <SEO
+const IndexPage = ({ data }) => {
+  return (
+    <>
+    <Seo
       title={data.strapiService.title + " - Priest Sheet Metal & Plate Christchurch"}
       description={data.strapiService.Content}
       pathname={"services/" + data.strapiService.title}
     />
     <Header />
-    <HeaderContact />
-
+    <main>
     <article style={{
           maxWidth: '75rem',
           marginLeft: 'auto',
@@ -64,7 +67,7 @@ const ArticleTemplate = ({ data }) => (
           padding: '1rem'
       }}>
 
-        <Cover medium={data.strapiService.coverMedium} video={data.strapiService.coverVideo} photo={data.strapiService.Cover.childImageSharp.fluid} />
+        {/* <Cover medium={data.strapiService.coverMedium} video={data.strapiService.coverVideo} photo={data.strapiService.Cover.childImageSharp.fluid} /> */}
         {/* https://help.vimeo.com/hc/en-us/articles/115011183028-Embedding-background-videos */}
 
         <hr className="swiss" />
@@ -130,16 +133,17 @@ const ArticleTemplate = ({ data }) => (
         </div> {/* .services-photogallery */}
 
     </article>
-
+    </main>
     <Footer />
-  </>
-)
+    </>
+  )
+}
 
-export default ArticleTemplate
+export default IndexPage
 
 export const query = graphql`
   query MyQuery {
-    strapiService(title: {eq: "PROFILE CUTTING - Plasma & Laser "}) {
+    strapiService(title: {eq: "PROFILE CUTTING - Plasma & Laser"}) {
       title
       Content
       byline
