@@ -12,9 +12,8 @@ const Header = () => (
 
       <nav id="menu_small" className="menu-small hide-for-print inactive">
         <ul className="text-center">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><a href="https://priestsheetmetal.co.nz">Priest Sheetmetal &amp; Plate</a></li>
+          <li><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
         </ul>
       </nav>
 
