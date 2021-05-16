@@ -53,7 +53,8 @@ module.exports = {
             "style-src": "'self' 'unsafe-inline'",
             "script-src": "'self' 'unsafe-inline' player.vimeo.com",
             // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
-            "font-src": "'self' 'unsafe-inline' data:font/woff2",
+            // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
+            "font-src": "'self' 'unsafe-inline' data:",
           }
         }
     },
