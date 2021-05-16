@@ -40,16 +40,7 @@ h6,
   margin: 2.75rem 0 1.05rem; // 🚨 this is really large for smaller h tags // 🚨 never use 3
   font-family: $major-font-family;
   font-weight: 400; // 📣 double check this
-  line-height: 1.15;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-transform: uppercase;
+  line-height: 1.5em;
 }
 
 h1 {

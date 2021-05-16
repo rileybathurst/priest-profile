@@ -452,29 +452,26 @@ footer {
 }
 
 .header-contact {
-  max-width: 89.9em;
+  max-width: 75rem;
   margin: 0 auto;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
 
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
-  }
-
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
-
-    h3 {
-      // once its in the row its a little different on the layout
-      margin-bottom: 0;
-      padding-right: $global-padding; // 📣 this is possibly causing the columns to be different sizes
-    }
+    text-align: center;
+    align-self: center;
+    margin-bottom: 0;
+    margin-right: 1rem;
   }
 }
 
 .together {
-  display: inline-block;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #header-contact--phone,

@@ -1,7 +1,10 @@
-import * as React from "react";
-import { Helmet } from "react-helmet" // I think this might change
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+// https://www.gatsbyjs.com/docs/add-seo-component/
+
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useLocation } from "@reach/router";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, pathname, article, image }) => (
   <StaticQuery
@@ -11,14 +14,17 @@ const SEO = ({ title, description, pathname, article, image }) => (
         siteMetadata: {
           defaultTitle,
           titleTemplate,
-          defaultDescription,
           siteUrl,
-          image,
-          openingHours,
+          defaultDescription,
+          defaultImage,
+          ogImage,
+          twitterImage,
           telephone,
+          openingHours,
           faxNumber,
           logo,
           areaServed,
+          location,
         },
       },
 
@@ -26,40 +32,64 @@ const SEO = ({ title, description, pathname, article, image }) => (
       const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
+        image: `${siteUrl}${image || defaultImage}`,
+        ogImage: ogImage,
+        twitterImage: twitterImage,
         url: `${siteUrl}${pathname || "/"}`,
-        image: image,
         openingHours: openingHours,
         telephone: telephone,
         faxNumber: faxNumber,
         logo: logo,
         areaServed: areaServed,
+        streetAddress: location.address.streetAddress,
+        addressLocality: location.address.addressLocality,
+        postalCode: location.address.postalCode,
       }
 
       return (
         <>
-          <Helmet title={seo.title} titleTemplate={titleTemplate}>
-
+          <Helmet
+            title={seo.title}
+            titleTemplate={titleTemplate}
+            htmlAttributes={{
+              lang: 'en-US',
+            }}
+          >
             <meta name="description" content={seo.description} />
+            <meta name="image" content={seo.ogImage} />
+            <meta property="og:type" content="website" />
             {seo.url && <meta property="og:url" content={seo.url} />}
-            {(article ? true : null) && (
-              <meta property="og:type" content="article" />
-            )}
             {seo.title && <meta property="og:title" content={seo.title} />}
             {seo.description && (
               <meta property="og:description" content={seo.description} />
             )}
+            {seo.image && <meta property="og:image" content={seo.ogImage} />}
+            {seo.image && <meta name="twitter:image" content={seo.twitterImage} />}
+
             {seo.title && <meta name="twitter:title" content={seo.title} />}
+
             {seo.description && (
               <meta name="twitter:description" content={seo.description} />
             )}
 
             <meta property="og:image" content={seo.image} />
-            <meta name="openingHours" content={seo.openingHours} />
-            <meta name="telephone" content={seo.telephone} />
-            <meta name="faxNumber" content={seo.faxNumber} />
+            {seo.openingHours && (
+              <meta name="openingHours" content={seo.openingHours} />
+            )}
+            {seo.telephone && <meta name="telephone" content={seo.telephone} />}
+            {seo.faxNumber && <meta name="faxNumber" content={seo.faxNumber} />}
+            {seo.areaServed && <meta name="areaServed" content={seo.areaServed} />}
             <meta name="logo" content={seo.logo} />
-            <meta name="areaServed" content={seo.areaServed} />
-
+            <meta
+              name="location"
+              content={
+                seo.streetAddress +
+                ", " +
+                seo.addressLocality +
+                ", " +
+                seo.postalCode
+              }
+            />
             <html lang="en" />
           </Helmet>
         </>
@@ -76,24 +106,31 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   article: PropTypes.bool,
   image: PropTypes.string,
+  ogImage: PropTypes.string,
+  twitterImage: PropTypes.string,
   openingHours: PropTypes.string,
   telephone: PropTypes.string,
   faxNumber: PropTypes.string,
   logo: PropTypes.string,
   areaServed: PropTypes.string,
+  location: PropTypes.string,
 }
 
 SEO.defaultProps = {
+  lang: `en`,
   title: null,
   description: null,
-  pathname: null,
   article: false,
+  pathname: null,
   image: null,
+  ogImage: null,
+  twitterImage: null,
   openingHours: null,
   telephone: null,
   faxNumber: null,
   logo: null,
   areaServed: null,
+  location: null,
 }
 
 const query = graphql`
@@ -101,15 +138,25 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-
         defaultDescription: description
         siteUrl: url
-        image: image
+        defaultImage: image
+        ogImage: image
+        twitterImage: image
         openingHours: openingHours
         telephone: telephone
         faxNumber: faxNumber
-        logo: logo
         areaServed: areaServed
+        logo: logo
+        location {
+          address {
+            _type
+            addressLocality
+            addressRegion
+            postalCode
+            streetAddress
+          }
+        }
       }
     }
   }

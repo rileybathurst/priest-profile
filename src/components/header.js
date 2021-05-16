@@ -27,9 +27,9 @@ const Header = () => (
             <ul className="menu align-center">
               {/* this is written kinda backwards to make the link be the full size but should be fixed */}
               <Link to="/"><li>Home</li></Link>
-              <Link to="/services"><li>Services</li></Link>
-              <Link to="/gallery"><li>Gallery</li></Link>
-              <Link to="/contact"><li>Contact</li></Link>
+              <a href="https://priestsheetmetal.co.nz/"><li>Sheetmetal &amp; Plate</li></a>
+              <a href="https://priestsheetmetal.co.nz/gallery"><li>Gallery</li></a>
+              <a href="https://priestsheetmetal.co.nz/contact"><li>Contact</li></a>
             </ul>
           </div>
         </nav>
