@@ -33,9 +33,8 @@ module.exports = {
         // apiURL: "http://localhost:1338", // local
         contentTypes: [
           "service",
-          `galleries`,
           `videos`,
-          `testimonials`,
+          // `testimonials`,
         ],
       },
     },
@@ -51,9 +50,9 @@ module.exports = {
           mergeScriptHashes: false,
           directives: {
             "style-src": "'self' 'unsafe-inline'",
-            "script-src": "'self' 'unsafe-inline'",
+            "script-src": "'self' 'unsafe-inline' 'https://player.vimeo.com/'",
             // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
-            "font-src": "'self' 'unsafe-inline'",
+            "font-src": "'self' 'unsafe-inline' 'data:font/woff2;base64'",
           }
         }
     },
