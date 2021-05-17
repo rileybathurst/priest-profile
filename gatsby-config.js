@@ -43,6 +43,16 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-netlify",
+    // favicon support
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `Priest Profile Cutting & Laser`,
+        short_name: `priestprofile`,
+        start_url: `/`,
+        icon: "src/images/icon.png",
+      },
+    },
     {
       resolve: `gatsby-plugin-csp`,
         options: {
