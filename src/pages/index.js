@@ -215,6 +215,7 @@ const IndexPage = ({ data }) => {
                         image={
                           photos.formats.medium.childImageSharp.gatsbyImageData
                         }
+                        alt={photos.name}
                       />
                     </li>
                   ))}
