@@ -43,10 +43,21 @@ main {
 }
 
 /*------------------------------------*\
-  #Backgrounds
+  #A11y
 \*------------------------------------*/
 
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
+/*------------------------------------*\
+  #Backgrounds
+\*------------------------------------*/
 
 .bg-primary {
   background: $primary-color;
@@ -110,7 +121,6 @@ main {
   background: $black;
   color: $white;
 }
-
 
 header {
   @extend .bg-secondary; // mobile menu background
@@ -212,7 +222,8 @@ nav,
   display: flex;
 }
 
-.menu a { // does this conflict or add to above?
+.menu a {
+  // does this conflict or add to above?
   text-decoration: none;
 }
 
@@ -319,7 +330,7 @@ footer {
   p {
     height: 100%; // fill the box
 
-/*     b { 🚨 // this isnt a tag
+    /*     b { 🚨 // this isnt a tag
       display: inline-block;
       height: 100%;
       width: 100%;
@@ -345,28 +356,35 @@ footer {
 }
 
 .footer-icons {
-  justify-items: center;
+  align-items: center;
   // I think this was the whole point but I can probably do it easier with a flex
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
 
   @media (min-width: $breakpoint__large) {
     flex-direction: row;
+  }
+
+  > * {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: $global-padding;
+    border-radius: 5px;
   }
 }
 
 // im mixing the display and styling
 // this is on the div i might be able to avoid that with some blocks
-.footer-icons:hover {
+.footer-icons > a:hover {
   background: $white;
   background: lighten($primary-color, 10%);
   transition: ease 0.5s; // having this on the hover is needed not to load and then transform
+
   // 📣 but that probably doesnt hover back
 
-  a {
     color: $light-gray; // 📣 this isnt a link color
-  }
 
   svg {
     fill: $light-gray;
@@ -375,8 +393,6 @@ footer {
 
 .footer-icon-icon {
   // 🚨 terrible names
-  grid-column: 1;
-  grid-row: 1;
   align-self: center;
 
   @media (min-width: $breakpoint__large) {
@@ -407,9 +423,9 @@ footer {
       height: 100%;
       align-items: center;
 
-      > span {
+/*       > span {
         padding: $global-padding;
-      } // > span
+      } // > span */
     } // a
   } // p
 } // .footer-icon-text
@@ -1017,7 +1033,6 @@ footer {
   }
 }
 
-
 // home testimonial animation
 // http://css3.bradshawenterprises.com/cfimg/
 
@@ -1084,41 +1099,39 @@ ad = 4
   animation-delay: 0s;
 }
 
-
 .page-template-page-swiss article {
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $global-padding;
-	padding-right: $global-padding;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 
-	video {
-		max-width: 100%;
-		margin-bottom: $global-margin*3;
-	}
+  video {
+    max-width: 100%;
+    margin-bottom: $global-margin * 3;
+  }
 
-	.attachment-post-thumbnail {
-		margin-bottom: $global-margin*2;
-	}
+  .attachment-post-thumbnail {
+    margin-bottom: $global-margin * 2;
+  }
 
-	/*
+  /*
 	.wp-block-column:not(:first-child) { this throws some design erros on small devices
 		// margin-left: $global-margin*2 !important; // overwrite default I would like to get down to as few important as possible I just need to work on the specificity
 	}
 	*/
 
-	.wp-block-media-text {
+  .wp-block-media-text {
+    .wp-block-media-text__content {
+      padding: 0 !important;
+    }
 
-		.wp-block-media-text__content {
-			padding: 0 !important;
-		}
-
-		@media (min-width: 600px) {
-			grid-template-columns: 1fr 1fr !important; // needs to be after a media query
-			grid-gap: $global-margin*2;
-			margin-bottom: $global-margin;
-		}
-	}
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr !important; // needs to be after a media query
+      grid-gap: $global-margin * 2;
+      margin-bottom: $global-margin;
+    }
+  }
 }
 
 /*   .blocks-gallery-item img {
@@ -1127,7 +1140,7 @@ ad = 4
 
 .wp-block-media-text {
   display: grid;
-  
+
   grid-gap: 2rem;
   margin-bottom: 1rem;
 
@@ -1164,41 +1177,41 @@ ad = 4
 
 // 📣 this is lots of really old things I dont want
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-	.blocks-gallery-grid {
-	  flex-direction: row;
-	}
-  
-	.blocks-gallery-item {
-	  height: auto;
-	  width: 100%;
-	}
-	.blocks-gallery-item img {
-	  width: 100%;
-	  max-height: 75vh;
-	  min-width: 0;
-	}
+  .blocks-gallery-grid {
+    flex-direction: row;
+  }
+
+  .blocks-gallery-item {
+    height: auto;
+    width: 100%;
+  }
+  .blocks-gallery-item img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
 }
 
 .blocks-gallery-item {
-    flex: 1 1 15rem;
-    padding: $global-padding/2;
+  flex: 1 1 15rem;
+  padding: $global-padding/2;
 }
 
 .gallerygallery {
-	margin: $global-margin;
-	width: 100%;
+  margin: $global-margin;
+  width: 100%;
 
-	@media (min-width: $breakpoint__medium) {
-		width: calc(50% - 2rem);
-	}
+  @media (min-width: $breakpoint__medium) {
+    width: calc(50% - 2rem);
+  }
 
-	@media (min-width: $breakpoint__large) {
-		width: calc(33% - 2rem);
-	}
+  @media (min-width: $breakpoint__large) {
+    width: calc(33% - 2rem);
+  }
 
-	li {
-		// display: flex;
-		padding-bottom: $global-margin;
-		max-height: 100%;
-	}
+  li {
+    // display: flex;
+    padding-bottom: $global-margin;
+    max-height: 100%;
+  }
 }

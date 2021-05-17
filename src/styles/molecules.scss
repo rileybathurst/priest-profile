@@ -387,16 +387,25 @@
 
 .summit__contact--service {
   // margin: 0 $global-margin $global-margin $global-margin;
-  padding: $global-padding; // I dont think I can have this for the hover state to work
+  margin: $global-margin;
   display: grid;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  > a {
+    z-index: 1; // above the background
+    display: flex;
+    flex-direction: row;
+    color: $white;
+  }
 }
 
 .summit__contact--icon {
-  grid-row: 1;
-  grid-column: 1;
   padding: $global-padding;
   justify-self: end;
-  z-index: 2; // above the border
 
   svg {
     fill: $white;
@@ -404,25 +413,14 @@
 }
 
 .summit__contact--text {
-  grid-row: 1;
-  grid-column: 2;
   // align-self: center; // can't do this to get a block
-  z-index: 2; // above the border
   padding: $global-padding;
-  color: $white;
-
   display: flex;
   align-items: center;
-
-  a {
-    text-decoration: underline;
-  }
 }
 
 // I'm not 100% this is the best way to do it but it works
 .summit-contact--skew {
-  grid-row: 1;
-  grid-column: 1/3;
   transform: skewX(-8deg); // guess and check
   background: $secondary-color;
   background: linear-gradient(

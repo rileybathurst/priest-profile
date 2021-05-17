@@ -1,11 +1,12 @@
 import * as React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Logo from "./logo"
 import SmallMenu from "./small-menu"
 
 const Header = () => (
   <>
     <header>
+      <h1 className="sr-only">Priest Profile Cutting &amp; Laser</h1>
       <div className="bg-primary hero-logo">
         <Logo />
       </div>
@@ -26,7 +27,7 @@ const Header = () => (
           <div className="menu-primary-container">
             <ul className="menu align-center">
               {/* this is written kinda backwards to make the link be the full size but should be fixed */}
-              <Link to="/"><li>Home</li></Link>
+              <li>Home</li>
               <a href="https://priestsheetmetal.co.nz/"><li>Sheetmetal &amp; Plate</li></a>
               <a href="https://priestsheetmetal.co.nz/gallery"><li>Gallery</li></a>
               <a href="https://priestsheetmetal.co.nz/contact"><li>Contact</li></a>
