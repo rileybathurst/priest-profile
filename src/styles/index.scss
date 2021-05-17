@@ -274,30 +274,22 @@ footer {
 .hero-logo {
   display: grid;
   place-items: center;
-
   // 📣 these next parts are design not layout
   z-index: 3; // sliding logo
   position: relative; // needed for z-index
 
   svg {
+    margin: $global-margin auto;
+    max-width: 50%;
     fill: $white;
     width: 100%; // needed for chrome
-  }
-
-  a {
-    display: inline-block;
-    // max-width: 33%;
-    max-width: 50%;
-    margin: $global-margin auto;
-    padding: $global-padding; // start doing more with a type scale and vertical rythm
-    border-radius: 5px;
 
     @media (min-width: $breakpoint__medium) {
       max-width: $general-measure;
       margin-top: $global-margin * 2;
       margin-bottom: $global-margin * 2;
     } // @media
-  } // a
+  }
 } // .hero-logo
 
 .hero-logo a:hover {
@@ -503,11 +495,12 @@ footer {
 } // #header-contact--!
 
 .service-info {
+  display: flex;
+  justify-content: space-between;
   flex-direction: column;
-
-  @media (min-width: $breakpoint__medium) {
-    flex-direction: row;
-  }
+  max-width: 35rem;
+  margin: 0 auto;
+  margin-bottom: 28px; // should be a rem
 }
 
 // can I do more of this with an @extend
