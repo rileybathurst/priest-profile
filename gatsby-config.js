@@ -43,6 +43,7 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-sitemap",
     // favicon support
     {
       resolve: "gatsby-plugin-manifest",
