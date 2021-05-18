@@ -361,10 +361,6 @@ footer {
   display: flex;
   flex-direction: column;
 
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
-  }
-
   > * {
     display: flex;
     flex-direction: column;
@@ -379,7 +375,7 @@ footer {
 // this is on the div i might be able to avoid that with some blocks
 .footer-icons > a:hover {
   background: $white;
-  background: lighten($primary-color, 10%);
+  background: darken($secondary-color, 15%);
   transition: ease 0.5s; // having this on the hover is needed not to load and then transform
 
   // 📣 but that probably doesnt hover back
@@ -515,7 +511,7 @@ footer {
   justify-content: space-between;
   flex-direction: column;
   max-width: 35rem;
-  margin: 0 auto;
+  // margin: 0 auto;
   margin-bottom: 28px; // should be a rem
 }
 
@@ -626,8 +622,8 @@ footer {
 .copyright {
   float: left; // needed to have the p margin inside of this
   width: 100%;
-  padding-top: 1rem;
-  padding-bottom: $global-padding * 2;
+  // padding-top: 1rem;
+  // padding-bottom: $global-padding * 2;
 
   p {
     padding: $global-padding;
@@ -1213,5 +1209,50 @@ ad = 4
     // display: flex;
     padding-bottom: $global-margin;
     max-height: 100%;
+  }
+}
+
+.footer-top {
+  background: $primary-color;
+  height: 0.5rem;
+}
+
+#footer-nav {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  padding-bottom: 3rem; // match above
+  gap: 1rem;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint__medium) {
+    flex-direction: row;
+  }
+
+
+  > li {
+    flex: 1 1;
+    list-style: none;
+    padding-left: 0; // browser reset
+    letter-spacing: normal;
+    font-family: "Open Sans", sans-serif;
+
+    @media (min-width: $breakpoint__medium) {
+      max-width: min-content;
+    }
+   
+    > a {
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      display: block;
+
+      // theres a problem with the longest being too wide on the narrowest designs
+      @media (min-width: $breakpoint__medium) {
+        white-space: nowrap;
+      }
+    }
   }
 }

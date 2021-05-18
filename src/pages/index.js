@@ -40,14 +40,14 @@ const IndexPage = ({ data }) => {
       />
       <Header />
 
-      <div id="header-contact-background" class="shadow">
-        <div class="header-contact">
+      <div id="header-contact-background" className="shadow">
+        <div className="header-contact">
           <h3>
             Specialist welders, sheetmetal engineers and general fabricators in
             Christchurch.
           </h3>
 
-          <section class="together">
+          <section className="together">
             <div className="summit__contact--service summit__contact--phone">
               {/* are these buttons? */}
               <a href="tel:033669818">
@@ -147,9 +147,11 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           {/* .service-info */}
-
-          <hr className="tasks__divider" />
-          <div className="tasks__divider--cross">{/* stay gold */}</div>
+ 
+          <div className="splitter">
+            <hr />
+            <div className="cross">{/* stay gold */}</div>
+          </div>
 
           {data.strapiService.videos.map(vids => (
             <>
@@ -189,11 +191,14 @@ const IndexPage = ({ data }) => {
                   {vids.content}
                 </div>
               </div>
+
+              <div className="splitter">
+                <hr />
+                <div className="cross">{/* stay gold */}</div>
+              </div>
             </>
           ))}
           {/* close out the videos area */}
-
-          <hr className="swiss" />
 
           <div
             style={{
@@ -210,7 +215,7 @@ const IndexPage = ({ data }) => {
               <figure className="wp-block-gallery columns-2 is-cropped">
                 <ul className="blocks-gallery-grid">
                   {data.strapiService.gallery.map(photos => (
-                    <li className="blocks-gallery-item">
+                    <li key={photos.hash} className="blocks-gallery-item"> {/* this key might be doubling up */}
                       <GatsbyImage
                         image={
                           photos.formats.medium.childImageSharp.gatsbyImageData
@@ -253,6 +258,7 @@ export const query = graphql`
         name
         url
         alternativeText
+        hash
 
         formats {
           medium {

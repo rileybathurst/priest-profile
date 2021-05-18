@@ -623,3 +623,45 @@
     grid-column: 1/8;
   }
 }
+
+.splitter {
+  display: grid;
+  // height: 4px;
+  place-items: center;
+  margin-bottom: 2rem;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  hr {
+    width: calc(100% - 2rem);
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+    border-radius: 2px;
+  }
+
+  .cross {
+    border-left: 2px solid $secondary-color;
+    border-right: 2px solid $secondary-color;
+    border-radius: 2px;
+    width: 0.5rem;
+    height: 1rem;
+    background: $white;
+    transform: skewX(-15deg); // guess and check
+  }
+}
+
+footer {
+  hr, .cross {
+    border-color: $white !important; // overwrite the regular splitter
+  }
+
+  .cross {
+    background: $secondary-color !important; // overwrite the regular splitter
+  }
+}

@@ -13,8 +13,8 @@ const Header = () => (
 
       <nav id="menu_small" className="menu-small hide-for-print inactive">
         <ul className="text-center">
-          <li><a href="https://priestsheetmetal.co.nz">Priest Sheetmetal &amp; Plate</a></li>
-          <li><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
+          <li key="sheetmetal"><a href="https://priestsheetmetal.co.nz">Priest Sheetmetal &amp; Plate</a></li>
+          <li key="contact"><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -27,10 +27,9 @@ const Header = () => (
           <div className="menu-primary-container">
             <ul className="menu align-center">
               {/* this is written kinda backwards to make the link be the full size but should be fixed */}
-              <li>Home</li>
-              <a href="https://priestsheetmetal.co.nz/"><li>Sheetmetal &amp; Plate</li></a>
-              <a href="https://priestsheetmetal.co.nz/gallery"><li>Gallery</li></a>
-              <a href="https://priestsheetmetal.co.nz/contact"><li>Contact</li></a>
+              <li key="sheetmetal"><a href="https://priestsheetmetal.co.nz/">Sheetmetal &amp; Plate</a></li>
+              <li key="gallery"><a href="https://priestsheetmetal.co.nz/gallery">Gallery</a></li>
+              <li key="contact"><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
             </ul>
           </div>
         </nav>
