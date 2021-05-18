@@ -5,6 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Seo from "../components/seo";
+import Testimonials from "../components/testimonials";
 
 // import SummitContact from "../components/summit-contact";
 
@@ -232,6 +233,9 @@ const IndexPage = ({ data }) => {
           {/* {props.loop} */}
         </article>
       </main>
+
+      <Testimonials />
+
       <Footer />
     </>
   );

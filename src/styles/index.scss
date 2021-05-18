@@ -1005,6 +1005,7 @@ footer {
     font-weight: bold;
     font-family: $major-font-family;
     margin-right: $global-margin/2;
+    line-height: 1rem;
   }
 
   > footer {
@@ -1044,6 +1045,7 @@ ad = 4
   display: grid;
   justify-items: stretch;
   align-items: stretch;
+  padding-bottom: 2rem;
 }
 #quotes > blockquote {
   // make double sure to add the bracket as gatsby image does strange things here

@@ -34,7 +34,7 @@ module.exports = {
         contentTypes: [
           "service",
           `videos`,
-          // `testimonials`,
+          `testimonials`,
         ],
       },
     },
