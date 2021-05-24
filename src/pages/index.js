@@ -90,8 +90,6 @@ const IndexPage = ({ data }) => {
                   Find us at 10 Barbour Street, Christchurch
                 </span>
               </a>
-              <div className="summit-contact--skew">{/* stay gold */}</div>
-              {/* <div className="summit-contact--skew__border"> stay gold </div> */}
             </div>
             {/* summit__contact--email */}
           </section>
