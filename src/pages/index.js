@@ -69,9 +69,6 @@ const IndexPage = ({ data }) => {
                   Call us today to discuss your project 366 9818
                 </span>
               </a>
-              <div className="summit-contact--skew shadow">
-                {/* stay gold */}
-              </div>
             </div>
             {/* summit__contact--phone */}
 

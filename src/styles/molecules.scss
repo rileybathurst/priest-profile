@@ -396,6 +396,17 @@
   }
 
   > a {
+    background: $secondary-color;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 141, 183, 1) 0%,
+      rgba(0, 96, 135, 1) 100%
+    ); // 📣
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 100%,
+    );
     z-index: 1; // above the background
     display: flex;
     flex-direction: row;
