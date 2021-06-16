@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../components/seo";
 
 // styles
 const pageStyles = {
@@ -29,6 +30,16 @@ const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
       <title>Not found</title>
+      
+      <Seo
+        title={
+          data.strapiService.title +
+          " - Priest Sheet Metal & Plate Christchurch"
+        }
+        description={data.strapiService.Content}
+        pathname={"services/" + data.strapiService.title}
+      />
+      
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
         Sorry{" "}
