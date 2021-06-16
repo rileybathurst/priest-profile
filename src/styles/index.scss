@@ -426,28 +426,6 @@ footer {
   } // p
 } // .footer-icon-text
 
-// this needs extra love beacuse its not a link but im not sure this is right
-.footer-icons_fax {
-  display: flex;
-  flex-direction: column;
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
-  }
-
-  > .footer-icon-text {
-    padding: $global-padding;
-
-    @media (min-width: $breakpoint__large) {
-      padding: $global-padding/2;
-    }
-
-    p {
-      display: flex;
-      align-items: center;
-    } // p
-  } // > .footer-icon-text
-} // .footer-icons_fax
-
 #header-contact-background {
   background: $light-gray;
   margin-bottom: $global-margin * 2;
@@ -987,6 +965,7 @@ footer {
 
   > svg {
     width: 100%;
+    height: 100%; // safari
     max-width: 5rem;
     fill: $secondary-color;
     margin-left: $global-margin;
@@ -1002,10 +981,10 @@ footer {
   > p::before {
     content: '"'; // left quote
     font-size: 2.488rem;
+    line-height: 1rem;
     font-weight: bold;
     font-family: $major-font-family;
-    margin-right: $global-margin/2;
-    line-height: 1rem;
+    margin-right: calc(var(--global-margin) / 2);
   }
 
   > footer {
@@ -1192,7 +1171,7 @@ ad = 4
 
 .blocks-gallery-item {
   flex: 1 1 15rem;
-  padding: $global-padding/2;
+  padding: calc(var(--global-padding) / 2);
 }
 
 .gallerygallery {

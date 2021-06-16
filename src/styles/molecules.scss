@@ -403,7 +403,8 @@
       184deg,
       rgba(30, 141, 183, 1) 0%,
       rgba(0, 96, 135, 1) 50%
-    ); // 📣
+    ); // gradient has to be from 50% to get a pass on wave.webaim.org
+    // 5/23/21 the firefox wave plugin was calling an error on any text over a gradient background
     z-index: 1; // above the background
     display: flex;
     flex-direction: row;

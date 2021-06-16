@@ -1,12 +1,12 @@
 button {
-    border: none; // browser rest
-    padding: $global-padding/2 $global-padding;
-    background: $secondary-color;
-    color: $white;
-    font-family: $major-font-family;
-    font-weight: bold;
-    font-size: 1.44em;
-  }
+  border: none; // browser rest
+  padding: calc(var(--global-padding) / 2) $global-padding;
+  background: $secondary-color;
+  color: $white;
+  font-family: $major-font-family;
+  font-weight: bold;
+  font-size: 1.44em;
+}
   
   // why us this so different? only use once can I get rid of it?
   .button {

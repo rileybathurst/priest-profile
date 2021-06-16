@@ -143,7 +143,7 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           {/* .service-info */}
- 
+
           <div className="splitter">
             <hr />
             <div className="cross">{/* stay gold */}</div>
@@ -214,7 +214,7 @@ const IndexPage = ({ data }) => {
                     <li key={photos.hash} className="blocks-gallery-item"> {/* this key might be doubling up */}
                       <GatsbyImage
                         image={
-                          photos.formats.medium.childImageSharp.gatsbyImageData
+                          photos.localFile?.childImageSharp?.gatsbyImageData
                         }
                         alt={photos.name}
                       />
@@ -255,16 +255,11 @@ export const query = graphql`
 
       gallery {
         name
-        url
         alternativeText
         hash
-
-        formats {
-          medium {
-            id
-            childImageSharp {
-              gatsbyImageData(formats: AUTO, placeholder: BLURRED)
-            }
+        localFile {
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
