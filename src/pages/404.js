@@ -30,14 +30,9 @@ const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
       <title>Not found</title>
-      
+
       <Seo
-        title={
-          data.strapiService.title +
-          " - Priest Sheet Metal & Plate Christchurch"
-        }
-        description={data.strapiService.Content}
-        pathname={"services/" + data.strapiService.title}
+        title="Not found - Priest Sheet Metal &amp; Plate Christchurch"
       />
       
       <h1 style={headingStyles}>Page not found</h1>
