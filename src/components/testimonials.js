@@ -48,7 +48,7 @@ export default function Testimonials() {
           {/* #star */}
           <div id="quotes" className="bg-medium-gray">
             {data.allStrapiTestimonials.edges.map(document => (
-              <blockquote id="quoted" className="bg-medium-gray">
+              <blockquote className="quoted bg-medium-gray">
                 <p>{document.node.content}</p>
                 <footer className="text-center">{document.node.author}</footer>
               </blockquote>
