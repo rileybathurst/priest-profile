@@ -32,10 +32,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <Seo
-        title={
-          data.strapiService.title +
-          " - Priest Sheet Metal & Plate Christchurch"
-        }
+        title={"Priest Profile Cutting &amp; Laser"}
         description={data.strapiService.Content}
         pathname={"services/" + data.strapiService.title}
       />
