@@ -20,7 +20,7 @@ import "../styles/index.scss";
 function Sec(props) {
   // seperator between the secondary videos
   if (props.hasVideo > 1) {
-    return <hr className="swiss" />;
+    return <hr className="swiss"  />;
   }
   return null;
 }
@@ -147,8 +147,8 @@ const IndexPage = ({ data }) => {
           </div>
 
           {data.strapiService.videos.map(vids => (
-            <>
-              <Sec hasVideo={data.strapiService.hasVideo} />
+            <div key={vids.title}>
+              <Sec hasVideo={data.strapiService.hasVideo}  />
 
               <div className="wp-block-media-text">
                 <figure className="wp-block-media-text__media">
@@ -189,7 +189,7 @@ const IndexPage = ({ data }) => {
                 <hr />
                 <div className="cross">{/* stay gold */}</div>
               </div>
-            </>
+            </div>
           ))}
           {/* close out the videos area */}
 
