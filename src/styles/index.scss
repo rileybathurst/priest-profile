@@ -220,6 +220,13 @@ nav,
   list-style: none;
   position: relative;
   display: flex;
+
+  li > a {
+    display: flex;
+    gap: .5rem;
+    padding: 1rem;
+    place-items: flex-end;
+  }
 }
 
 .menu a {
@@ -231,9 +238,9 @@ nav,
   background: #006087; // 🚨 hack I need to make this from a variable
 }
 
-.menu li {
+/* .menu li {
   padding: $global-padding; // lets start setting a vertical rythm
-}
+} */
 
 // 📣 what is this?
 abbr[title] {
