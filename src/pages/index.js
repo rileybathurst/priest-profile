@@ -6,6 +6,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Seo from "../components/seo";
 import Testimonials from "../components/testimonials";
+import Cross from "../components/cross";
 
 // import SummitContact from "../components/summit-contact";
 
@@ -141,10 +142,7 @@ const IndexPage = ({ data }) => {
           </div>
           {/* .service-info */}
 
-          <div className="splitter">
-            <hr />
-            <div className="cross">{/* stay gold */}</div>
-          </div>
+          <Cross />
 
           {data.strapiService.videos.map(vids => (
             <div key={vids.title}>
@@ -185,10 +183,7 @@ const IndexPage = ({ data }) => {
                 </div>
               </div>
 
-              <div className="splitter">
-                <hr />
-                <div className="cross">{/* stay gold */}</div>
-              </div>
+              <Cross />
             </div>
           ))}
           {/* close out the videos area */}

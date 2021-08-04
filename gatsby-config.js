@@ -35,6 +35,8 @@ module.exports = {
           "service",
           `videos`,
           `testimonials`,
+          `industries`,
+          `industry-aspect`
         ],
       },
     },

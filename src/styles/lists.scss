@@ -1,0 +1,233 @@
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+
+/**
+ * 1) List base styles
+ */
+
+/**
+  * Remove list styles from unordered and ordered lists
+  */
+  ol,
+  ul {
+    list-style: none;
+  }
+  
+  nav {
+    // font-size: 4vw; // testing
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-family: var(--major-font-family);
+    letter-spacing: 0.1rem;
+  }
+  
+  /*------------------------------------*/
+  //  #check this
+  /*------------------------------------*/
+  
+  .menu {
+    max-width: --header-menu-size;
+    margin-inline: auto;
+    margin-block: 0;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: flex;
+    // place-items: flex-end;
+    place-items: space-between;
+    gap: 0.5rem;
+    white-space: nowrap; // don't let lines break
+  }
+  
+  .menu li {
+    > a {
+      padding: var(--global-padding); // lets start setting a vertical rythm
+      display: flex; // the only one using this is with the icon but it doesnt hurt the rest
+      place-items: flex-end;
+      gap: 0.5rem;
+    }
+  
+    svg {
+      min-width: 1rem; // safari and edge need a width
+      max-height: 2.4rem; // guess and check
+  
+      fill: var(--white);
+      margin-inline-end: 0.25rem;
+    }
+  
+    // can I do something with is to get the svg and display it as a flex?
+  }
+  
+  /*------------------------------------*/
+  //  #small menu
+  /*------------------------------------*/
+  
+  #menu_small {
+    width: 100%;
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
+  
+    position: relative;
+    z-index: 1; // check its above the gallery on the front page
+    margin-bottom: 0;
+  
+    > ul {
+      padding-left: 0; // browser reset
+      margin: 0;
+  
+      > li {
+        list-style: none;
+        // margin-left: 0;
+        padding-inline: 0.5rem;
+  
+        > a {
+          display: flex;
+          place-items: center; // vertical align
+          justify-content: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          border-bottom: 1px solid var(--secondary-color);
+          padding-block: 0.5rem;
+  
+          > svg {
+            max-width: 3rem; // guess and check
+            max-height: 3rem; // guess and check
+            fill: currentColor;
+          } // svg
+        } // a
+  
+        > a:hover {
+          background: var(--secondary-color);
+          color: var(--white);
+        }
+      } // li
+    } // ul
+  
+    @media (min-width: $header-menu-size) {
+      display: none;
+    }
+  } // #menu_small
+  // 🚨 inception only 3 deep
+  
+  .active {
+    height: 100%;
+    transition: top 2s ease; // sliding menu
+  }
+  
+  .inactive {
+    transition: top 2s ease; // sliding menu
+  }
+  
+  .firstload { // this just gets removed
+    opacity: 0;
+    height: 0; // this is needed but breaks all the things
+  }
+  
+  
+  /*------------------------------------*/
+  //  #toggle
+  /*------------------------------------*/
+  
+  #menu_toggle {
+    z-index: 2; // sliding menu
+    position: relative; // needed for z-index
+  
+    display: grid;
+  
+    @media (min-width: $header-menu-size) {
+      display: none;
+    }
+  }
+  
+  #menu_toggle.toggle__active {
+    > .small_menu--icon > .small_menu--icon-topline {
+      transform: rotate(45deg);
+      grid-row: 1;
+      grid-column: 1;
+      align-self: center;
+      justify-self: center;
+      margin: 0;
+    }
+  
+    > .small_menu--icon > .small_menu--icon-bottomline {
+      transform: rotate(-45deg);
+      grid-row: 1;
+      grid-column: 1;
+      align-self: center;
+      justify-self: center;
+      margin: 0;
+    }
+  }
+  
+  .small_menu--opener,
+  .small_menu--icon {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+  }
+  
+  .small_menu--icon {
+    justify-self: end;
+    margin-right: var(--global-margin);
+    transition: 2s ease; // the slide in on load is kinda nice but maybe overkill
+    cursor: pointer; // match the link
+    display: grid;
+  }
+  
+  .small_menu--opener {
+    width: 100%;
+    cursor: pointer;
+    padding-block: var(--global-padding);
+    transition: 1s ease;
+    padding-block: 1rem;
+  }
+  
+  .small_menu--opener:hover {
+    color: var(--light-gray); // 📣
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  }
+  
+  .small_menu--icon span {
+    transition: 0.5s ease; // the slide in on load is kinda nice but maybe overkill
+  }
+  
+  .small_menu--icon-topline,
+  .small_menu--icon-bottomline {
+    width: 1rem;
+    height: 0.25rem;
+    background: var(--white);
+    display: block;
+    transform: rotate(0deg);
+    top: 0;
+    position: relative;
+  }
+  
+  .small_menu--icon-bottomline {
+    margin-top: 0.5rem;
+  }
+  
+  /*------------------------------------*/
+  //  #larger menu
+  /*------------------------------------*/
+  
+  #menu__big {
+    @extend nav;
+    display: none;
+  
+    @media (min-width: $header-menu-size) {
+      display: block;
+      width: 100%;
+      max-width: var(--page-width);
+      margin-inline: auto;
+      background: var(--secondary-color);
+    }
+  
+    a {
+      padding-inline: 2rem;
+    }
+  
+    svg {
+      max-height: 1.2rem;
+    }
+  } // .menu-primary-container
+  

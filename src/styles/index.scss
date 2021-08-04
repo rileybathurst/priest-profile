@@ -10,12 +10,43 @@
 /* Medium Up screens - fixes header issue
 @media only screen and (min-width: 40.063em) {
 	.full {
-	  width: 100%;
+    width: 100%;
 	}
 } */
 
 // this is a messy place to have this but until I get everything sorted it's here for now
+
+
+/*------------------------------------*\
+    #ABSTRACTS
+\*------------------------------------*/
 @import "variables";
+@import "colors";
+// @import "typography";
+/*------------------------------------*\
+#BASE
+\*------------------------------------*/
+// @import "body";
+@import "links";
+@import "lists";
+// @import "buttons";
+@import "media";
+@import "text";
+@import "hr";
+/*------------------------------------*\
+    #BACKGROUNDS
+\*------------------------------------*/
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+@import "hero";
+@import "page";
+@import "footer";
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+// @import "molecules";
+
 @import "base-typography.scss";
 @import "molecules";
 @import "buttons";
@@ -264,15 +295,27 @@ iframe {
 \*------------------------------------*/
 
 .hero {
-  display: grid;
-  max-width: 89.9em; // stops 3 or more columns
-  margin: $global-margin auto; // center float
-  padding: $global-padding; // small size never get to the edge
-  grid-gap: $global-margin;
+  // tone down the size of the hero text but stick to the type scale
+  h1 {
+    font-size: 1.728em; // try even further down at an h3
+    line-height: 1.35em; // guess and check select some text to check its right
 
-  // start doing columns once its bigger - slightly a hack
-  @media (min-width: $breakpoint__medium) {
-    grid-template-columns: 1fr 1fr;
+    @media (min-width: $breakpoint__medium) {
+      font-size: 2.074em; // h2 halfway back up
+    }
+
+    @media (min-width: $breakpoint__large) {
+      font-size: 2.448em; // return to normal
+    }
+  }
+
+  h2 {
+    font-size: 1.728em;
+    line-height: 1.33em; // guess and check select some text to check its right
+
+    @media (min-width: $breakpoint__medium) {
+      font-size: 2.074em;
+    }
   }
 }
 
@@ -287,36 +330,6 @@ iframe {
 footer {
   align-self: end;
   margin-bottom: 0; // browser reset
-}
-
-.hero-logo {
-  display: grid;
-  place-items: center;
-  // 📣 these next parts are design not layout
-  z-index: 3; // sliding logo
-  position: relative; // needed for z-index
-
-  svg {
-    margin: $global-margin auto;
-    max-width: 50%;
-    fill: $white;
-    width: 100%; // needed for chrome
-
-    @media (min-width: $breakpoint__medium) {
-      max-width: $general-measure;
-      margin-top: $global-margin * 2;
-      margin-bottom: $global-margin * 2;
-    } // @media
-  }
-} // .hero-logo
-
-.hero-logo a:hover {
-  background: darken($primary-color, 10%);
-  transition: 0.5s ease;
-
-  svg {
-    fill: darken($white, 10%); // 📣 document this
-  }
 }
 
 // 📣 this naming is off these are elements not modifiers
@@ -438,6 +451,10 @@ footer {
   margin-bottom: $global-margin * 2;
   padding: $global-padding * 2 $global-padding 0 $global-padding;
   // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--blackish);
+  }
 }
 
 .header-contact {
@@ -768,31 +785,6 @@ footer {
   padding-right: $global-padding;
 }
 
-.hero {
-  // tone down the size of the hero text but stick to the type scale
-  h1 {
-    font-size: 1.728em; // try even further down at an h3
-    line-height: 1.35em; // guess and check select some text to check its right
-
-    @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em; // h2 halfway back up
-    }
-
-    @media (min-width: $breakpoint__large) {
-      font-size: 2.448em; // return to normal
-    }
-  }
-
-  h2 {
-    font-size: 1.728em;
-    line-height: 1.33em; // guess and check select some text to check its right
-
-    @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em;
-    }
-  }
-}
-
 // forms
 // working from this https://codepen.io/chicagoing/pen/XMXVvE
 // and then breaking it in all sorts of ways to be a grid
@@ -1031,19 +1023,26 @@ ad = 4
   display: grid;
   justify-items: stretch;
   align-items: stretch;
-  padding-bottom: 2rem;
-}
-#quotes > blockquote {
-  // make double sure to add the bracket as gatsby image does strange things here
-  grid-column: 1;
-  grid-row: 1;
-  animation-name: FadeInOut;
-  animation-duration: 16s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
 
-  background: $medium-gray;
-  width: calc(100% - 2rem);
+  @media (prefers-color-scheme: dark) {
+    background: var(--blackish);
+  }
+
+  > blockquote {
+    // make double sure to add the bracket as gatsby image does strange things here
+    grid-column: 1;
+    grid-row: 1;
+    animation-name: FadeInOut;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    width: calc(100% - 2rem);
+    background: $medium-gray;
+    @media (prefers-color-scheme: dark) {
+      background: var(--blackish);
+    }
+  }
 }
 
 /* Just do the link I dont understand the math */
