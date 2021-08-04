@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <Seo
-        title={"Priest Profile Cutting &amp; Laser"}
+        title={"Priest Profile Cutting & Laser"}
         description={data.strapiService.Content}
         pathname={"services/" + data.strapiService.title}
       />
@@ -237,7 +237,7 @@ export default IndexPage;
 
 export const query = graphql`
   query MyQuery {
-    strapiService(title: { eq: "Profile Cutting - Plasma & Laser" }) {
+    strapiService(title: { eq: "Laser Cutting & Profile Cutting" }) {
       title
       Content
       byline

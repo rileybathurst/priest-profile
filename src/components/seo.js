@@ -85,6 +85,7 @@ const SEO = ({ title, description, image, lang }) => {
           seo.postalCode
         }
       />
+      {/* this is a double */}
       <html lang="en" />
 
       <meta name="theme-color" content="#1e93bd" />
