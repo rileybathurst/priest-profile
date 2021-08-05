@@ -3,11 +3,13 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import HeaderContact from "../components/header-contact";
+import Seo from "../components/seo";
 
 // markup
 const NotFoundPage = () => {
   return (
     <Layout>
+      <Seo title="404 - Page not found" />
       <HeaderContact />
       <main className="page-width">
         <h1>NOT FOUND</h1>
