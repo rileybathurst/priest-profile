@@ -982,17 +982,22 @@ footer {
 }
 
 .quoted {
-  max-width: $general-measure;
-  margin: 0 auto;
-  padding: $global-padding;
+  margin: 0;
+  padding: var(--global-padding);
 
   > p::before {
+
     content: '"'; // left quote
     font-size: 2.488rem;
     line-height: 1rem;
     font-weight: bold;
     font-family: $major-font-family;
     margin-right: calc(var(--global-margin) / 2);
+  }
+
+  > p {
+    max-width: var(--general-measure);
+    margin-inline: auto;
   }
 
   > footer {
