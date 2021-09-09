@@ -134,6 +134,7 @@ const Footer = () => (
     </div>
 
     <div className="footer__copyright text-center">
+      <p><a href="https://priest.netlify.app/terms/" className="backed">Terms and Conditions</a></p>
       <p>&copy; <ThisYear /></p>
     </div>
   </footer>
