@@ -20,7 +20,7 @@ export default function IndustryNav() {
           <ul className="footer__industries">
             {data.allStrapiIndustries.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
+                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed footer-lists">
                   {document.node.title}
                 </Link>
               </li>

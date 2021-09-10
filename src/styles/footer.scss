@@ -20,17 +20,26 @@ footer {
 
   ul {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     max-width: 75rem;
     margin-inline: auto;
     padding: 1rem 1rem 3rem;
     justify-content: flex-start;
     gap: var(--global-grid-gap);
 
+    @media (min-width: $breakpoint__medium) {
+      flex-flow: row wrap;
+    }
+
     > * {
       flex: 1 1;
       white-space: nowrap;
       max-width: max-content;
+    }
+
+    .line-breaker {
+      white-space:  break-spaces;
+      line-height: 2;
     }
   }
 
@@ -43,6 +52,18 @@ footer {
       border-color: var(--white);
       background: var(--secondary-color);
     }
+  }
+}
+
+// Go back and fix the !importants by removing the backeds
+// the reason Im doing this is to give more space to lines on small devices. less line breaks
+// as its only small realistically it wont have hovers
+
+.footer-lists {
+  padding: 0 !important;
+
+  @media (min-width: $breakpoint__medium) {
+    padding: 0.5rem 1rem !important;
   }
 }
 

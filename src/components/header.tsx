@@ -11,17 +11,6 @@ const Header = () => (
         <Logo />
       </div>
 
-      <nav id="menu_small" className="menu-small hide-for-print inactive">
-        <ul className="text-center">
-          <li key="sheetmetal"><a href="https://priestsheetmetal.co.nz">Priest Sheetmetal &amp; Plate</a></li>
-          <li key="contact"><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div id="menu_toggle" className="bg-secondary shadow-darker text-center">
-        <SmallMenu />
-      </div>
-
       <nav id="menu__big">
         <div className="menu-primary-container">
           <ul className="menu align-center">
