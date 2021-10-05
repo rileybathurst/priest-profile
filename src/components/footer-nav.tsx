@@ -1,22 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-// I think this needs useEffect
-
 function LineBreak(props) {
   const ref = useRef();
 
     useEffect(() => {
       if (ref.current) {
         if (ref.current.innerText.length > 20) {
-          console.log(ref.current);
-          console.log(ref.current.innerText);
-          console.log(ref.current.className);
+          // console.log(ref.current);
+          // console.log(ref.current.innerText);
+          // console.log(ref.current.className);
 
           const longline = ref.current.className;
           const lineall = longline + " line-breaker";
 
-          console.log("🦖 " + lineall);
+          // console.log("🦖 " + lineall);
           ref.current.className = lineall;
         }
       }
