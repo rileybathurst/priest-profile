@@ -15,7 +15,13 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
 import "../styles/index.scss";
 
-// cover can be removed as its known to be video
+function Byline(props) {
+  if (props.byline) {
+    return <h3>{props.byline}</h3>;
+  } else {
+    return null;
+  }
+}
 
 // START OF VIDEOS
 function Sec(props) {
@@ -134,7 +140,7 @@ const IndexPage = ({ data }) => {
           <div className="service-info">
             <h2>{data.strapiService.title}</h2>
             <div>
-              <h3>{data.strapiService.byline}</h3>
+              <Byline byline={data.strapiService.byline} />
               <p>{data.strapiService.Content}</p>
             </div>
           </div>
