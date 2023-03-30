@@ -73,6 +73,7 @@ module.exports = {
           // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
           "img-src": "'self' data: *.mux.com/ *.litix.io/",
           "font-src": "'self' 'unsafe-inline' data:",
+          "connect-src": "'self' *.mux.com/ *.litix.io/",
         }
       }
     },
