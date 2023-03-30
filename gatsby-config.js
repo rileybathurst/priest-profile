@@ -65,9 +65,9 @@ module.exports = {
         mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeScriptHashes: false,
         directives: {
-          "default-src": "'self' player.vimeo.com",
+          "default-src": "'self' *.litix.io/ *.mux.com/",
           "style-src": "'self' 'unsafe-inline'",
-          "script-src": "'self' 'unsafe-inline' player.vimeo.com",
+          "script-src": "'self' 'unsafe-inline' ",
           // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
           // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
           "font-src": "'self' 'unsafe-inline' data:",
