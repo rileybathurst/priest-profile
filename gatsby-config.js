@@ -1,7 +1,11 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Priest Profile Cutting & Laser",
-    titleTemplate: "%s",
+    titleTemplate: "%s", // TODO: Am I sure this is right
     description: 'Vented water high definition plasma cutting and laser cutting',
     url: 'https://priestprofile.co.nz/',
     siteUrl: `https://priestprofile.co.nz/`,
@@ -29,8 +33,8 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://45.79.101.19:1338", // linode build
-        // apiURL: "http://localhost:1338", // local
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
           "service",
           `videos`,
@@ -57,18 +61,18 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-csp`,
-        options: {
-          mergeStyleHashes: false, // you can disable styles sha256 hashes
-          mergeScriptHashes: false,
-          directives: {
-            "default-src": "'self' player.vimeo.com",
-            "style-src": "'self' 'unsafe-inline'",
-            "script-src": "'self' 'unsafe-inline' player.vimeo.com",
-            // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
-            // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
-            "font-src": "'self' 'unsafe-inline' data:",
-          }
+      options: {
+        mergeStyleHashes: false, // you can disable styles sha256 hashes
+        mergeScriptHashes: false,
+        directives: {
+          "default-src": "'self' player.vimeo.com",
+          "style-src": "'self' 'unsafe-inline'",
+          "script-src": "'self' 'unsafe-inline' player.vimeo.com",
+          // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
+          // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
+          "font-src": "'self' 'unsafe-inline' data:",
         }
+      }
     },
   ],
 };

@@ -2,7 +2,9 @@ import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 export default function IndustryNav() {
   return (
-    <StaticQuery
+    <>
+    // ! this is off for testing
+      {/* <StaticQuery
       query={graphql`
         query IndustryNavQuery {
           allStrapiIndustries(sort: { fields: [order], order: ASC }) {
@@ -28,6 +30,7 @@ export default function IndustryNav() {
           </ul>
         </nav>
       )}
-    />
+    /> */}
+    </>
   );
 }

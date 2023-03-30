@@ -4,7 +4,9 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 export default function Testimonials() {
   return (
-    <StaticQuery
+    <>
+    // ! off for testing
+      {/* <StaticQuery
       query={graphql`
         query TestimonialsQuery {
           allStrapiTestimonials {
@@ -22,12 +24,12 @@ export default function Testimonials() {
         <section id="testimonials">
           <h3 className="text-center">Testimonials</h3>
           <div className="stars">
-          <div className="star__back">{/* stay gold */}</div>
+          <div className="star__back">/* stay gold</div>
             <div className="svgs">
               <svg title="star-1" className="star-1" viewBox="0 0 200 200">
-                {/* height="210" width="500" */}
+                {/* height="210" width="500"
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
-                {/* width="100%" height="100%" */}
+                {/* width="100%" height="100%" 
               </svg>
               <svg title="star-2" className="star-2" viewBox="0 0 200 200">
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
@@ -42,11 +44,11 @@ export default function Testimonials() {
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
               </svg>
             </div>
-            {/* #star-container */}
+            {/* #star-container 
           </div>
-          {/* .star */}
+          {/* .star 
           <div id="quotes">
-            {/* used for animation */}
+            {/* used for animation 
             {data.allStrapiTestimonials.edges.map((document) => (
               <blockquote className="quoted" key={document.node.id}>
                 <p>{document.node.content}</p>
@@ -56,6 +58,7 @@ export default function Testimonials() {
           </div>
         </section>
       )}
-    />
+    /> */}
+    </>
   );
 }

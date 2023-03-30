@@ -4,21 +4,21 @@ import { StaticQuery, graphql } from "gatsby";
 function LineBreak(props) {
   const ref = useRef();
 
-    useEffect(() => {
-      if (ref.current) {
-        if (ref.current.innerText.length > 20) {
-          // console.log(ref.current);
-          // console.log(ref.current.innerText);
-          // console.log(ref.current.className);
+  useEffect(() => {
+    if (ref.current) {
+      if (ref.current.innerText.length > 20) {
+        // console.log(ref.current);
+        // console.log(ref.current.innerText);
+        // console.log(ref.current.className);
 
-          const longline = ref.current.className;
-          const lineall = longline + " line-breaker";
+        const longline = ref.current.className;
+        const lineall = longline + " line-breaker";
 
-          // console.log("🦖 " + lineall);
-          ref.current.className = lineall;
-        }
+        // console.log("🦖 " + lineall);
+        ref.current.className = lineall;
       }
-    }, []);
+    }
+  }, []);
 
   return (
     <a
@@ -38,7 +38,7 @@ export default function FooterNav() {
     <StaticQuery
       query={graphql`
         query FooterQuery {
-          allStrapiService(sort: { fields: [order], order: ASC }) {
+          allStrapiService(sort: {order: ASC}) {
             edges {
               node {
                 slug

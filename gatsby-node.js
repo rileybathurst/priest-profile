@@ -1,3 +1,5 @@
+// ! I don't think Im using this
+
 const path = require(`path`);
 
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
@@ -7,7 +9,7 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
       if (result.errors) {
         reject(result.errors)
       }
-      
+
       return result;
     })
   )
