@@ -58,6 +58,7 @@ const IndexPage = () => {
         muxCover
 
         videos {
+          id
           title
           content
           mux
