@@ -69,6 +69,7 @@ module.exports = {
           "media-src": "'self' *.litix.io/ *.mux.com/ blob:",
           "style-src": "'self' 'unsafe-inline'",
           "script-src": "'self' 'unsafe-inline' ",
+          "script-src": "'self' 'unsafe-inline' blob:",
           // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
           // https://stackoverflow.com/questions/52328336/csp-allow-specific-datafont-woffbase64-somebase64encoded-font-without-usin
           "img-src": "'self' data: *.mux.com/ *.litix.io/",
