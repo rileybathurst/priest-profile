@@ -1,7 +1,8 @@
 import * as React from "react"
-// import { Link } from "gatsby"
 import Logo from "./logo"
 import SmallMenu from "./small-menu"
+
+// TODO: this looks terrible on a phone
 
 const Header = () => (
   <>
@@ -15,9 +16,9 @@ const Header = () => (
         <div className="menu-primary-container">
           <ul className="menu align-center">
             {/* this is written kinda backwards to make the link be the full size but should be fixed */}
-            <li key="sheetmetal"><a href="https://priestsheetmetal.co.nz/">Sheetmetal &amp; Plate</a></li>
+            <li key="sheetmetal"><a href="https://priestsheetmetal.co.nz/" target='_blank' rel='noopener noreferrer'>Sheetmetal &amp; Plate</a></li>
             {/* <li key="gallery"><a href="https://priestsheetmetal.co.nz/gallery">Gallery</a></li> */}
-            <li key="contact"><a href="https://priestsheetmetal.co.nz/contact">Contact</a></li>
+            <li key="contact"><a href="https://priestsheetmetal.co.nz/contact" target='_blank' rel='noopener noreferrer'>Contact</a></li>
           </ul>
         </div>
       </nav>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 function LineBreak(props) {
   const ref = useRef();
@@ -14,7 +14,6 @@ function LineBreak(props) {
         const longline = ref.current.className;
         const lineall = longline + " line-breaker";
 
-        // console.log("🦖 " + lineall);
         ref.current.className = lineall;
       }
     }
@@ -22,7 +21,7 @@ function LineBreak(props) {
 
   return (
     <a
-      // href={`https://priestsheetmetal.co.nz/services/${document.node.slug}`}
+      href={`https://priestsheetmetal.co.nz/services/${props.slug}`}
       target="_blank"
       rel="noreferrer"
       className="backed footer-lists"
@@ -34,31 +33,27 @@ function LineBreak(props) {
 }
 
 export default function FooterNav() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query FooterQuery {
-          allStrapiService(sort: {order: ASC}) {
-            edges {
-              node {
-                slug
-                title
-              }
-            }
-          }
+
+  const { allStrapiService } = useStaticQuery(graphql`
+    query MyQuery {
+      allStrapiService(sort: {order: DESC}) {
+        nodes {
+          slug
+          title
         }
-      `}
-      render={data => (
-        <nav>
-          <ul className="footer__services">
-            {data.allStrapiService.edges.map(document => (
-              <li key={document.node.slug}>
-                <LineBreak slug={document.node.slug} title={document.node.title} />
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
-    />
-  );
+      }
+    }
+  `)
+
+  return (
+    <nav>
+      <ul className="footer__services">
+        {allStrapiService.nodes.map(service => (
+          <li key={service.slug}>
+            <LineBreak slug={service.slug} title={service.title} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
 }

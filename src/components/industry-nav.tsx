@@ -1,36 +1,33 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+
 export default function IndustryNav() {
-  return (
-    <>
-    // ! this is off for testing
-      {/* <StaticQuery
-      query={graphql`
-        query IndustryNavQuery {
-          allStrapiIndustries(sort: { fields: [order], order: ASC }) {
-            edges {
-              node {
-                slug
-                title
-              }
-            }
-          }
+
+  const { allStrapiIndustry } = useStaticQuery(graphql`
+    query IndustyNavQuery {
+      allStrapiIndustry(sort: {order: DESC}) {
+        nodes {
+          slug
+          title
         }
-      `}
-      render={data => (
-        <nav>
-          <ul className="footer__industries">
-            {data.allStrapiIndustries.edges.map(document => (
-              <li key={document.node.slug}>
-                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed footer-lists">
-                  {document.node.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
-    /> */}
-    </>
+      }
+    }
+  `)
+
+  return (
+    <nav>
+      <ul className="footer__industries">
+        {allStrapiIndustry.nodes.map(document => (
+          <li key={document.slug}>
+            <a href={`https://priestsheetmetal.co.nz/${document.slug}`}
+              target="_blank" rel="noreferrer"
+              className="backed footer-lists"
+            >
+              {document.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

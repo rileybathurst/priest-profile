@@ -38,8 +38,8 @@ module.exports = {
         collectionTypes: [
           "service",
           `videos`,
-          `testimonials`,
-          `industries`
+          `testimonial`,
+          `industry`,
         ],
       },
     },

@@ -2,7 +2,6 @@ import * as React from "react";
 
 const Logo = () => {
   return (
-    // <Link to="/"> this doesnt need to be a link in profile it can't go anywhere
     <div className="">
       <svg title="priest profile cutting logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410.86 101.52">
         <path className="cls-1" d="M113.31,99.58l2.15-.37V84l-2.15-.37V82H128.1v4.63h-2.21L125.68,84h-7.63v6.64h7.4v2h-7.4v6.49l2.14.37v1.67h-6.88Z" />

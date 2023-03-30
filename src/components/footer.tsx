@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "gatsby";
 
 import Logo from "./logo";
 import FooterNav from "./footer-nav";
@@ -85,7 +84,7 @@ const Footer = () => (
       {/* .footer__contact--method  */}
 
       <div className="footer__contact--method">
-        {/* this one is messy and annoying as its not actually a link */}
+        {/* fax isnt link */}
         <div className="no-link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -110,9 +109,13 @@ const Footer = () => (
     <Cross />
 
     <h3 className="centered footer__backed">
-      <Link to="/industries" className="backed">
+
+      <a href="https://priestsheetmetal.co.nz/services"
+        target="_blank" rel="noreferrer noopener"
+        className="backed"
+      >
         Services
-      </Link>
+      </a>
     </h3>
 
     <FooterNav />
@@ -120,9 +123,12 @@ const Footer = () => (
     <Cross />
 
     <h3 className="centered footer__backed">
-      <Link to="/industries" className="backed">
+      <a href="https://priestsheetmetal.co.nz/industries"
+        target="_blank" rel="noreferrer noopener"
+        className="backed"
+      >
         Industry Suppliers
-      </Link>
+      </a>
     </h3>
 
     <IndustryNav />
@@ -134,7 +140,12 @@ const Footer = () => (
     </div>
 
     <div className="footer__copyright text-center">
-      <p><a href="https://priest.netlify.app/terms/" className="backed">Terms and Conditions</a></p>
+      <p><a href="https://priestsheetmetal.co.nz/terms/"
+        target='_blank' rel='noopener noreferrer'
+        className="backed"
+      >
+        Terms and Conditions</a></p>
+      {/* // TODO: write this he right way */}
       <p>&copy; <ThisYear /></p>
     </div>
   </footer>

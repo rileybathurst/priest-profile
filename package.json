@@ -17,6 +17,9 @@
   "dependencies": {
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/roboto-slab": "^4.5.11",
+    "@mux/mux-node": "^7.3.0",
+    "@mux/mux-player-react": "^1.8.0",
+    "@mux/videojs-kit": "^0.11.4",
     "gatsby": "^5.8.1",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -33,6 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-markdown": "^8.0.6",
     "sass": "^1.60.0"
   },
   "devDependencies": {
